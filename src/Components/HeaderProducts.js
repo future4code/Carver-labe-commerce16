@@ -11,6 +11,11 @@ const DivHeader = styled.div`
 const DivOrdenacao = styled.div`
     display: flex;
     flex-direction: row;
+    align-items:center;
+
+    select{
+        height: 20px;
+    }
 `
 
 export default class HeaderProducts extends React.Component {
@@ -24,9 +29,9 @@ export default class HeaderProducts extends React.Component {
                 </div>
                 <DivOrdenacao>
                     <p>Ordenacao</p>
-                    <select>
+                    <select onChange={this.props.ordenacao}>
                         <option value={this.props.crescente}>Crescente</option>
-                        <option value={this.props.descrecente}>Decrescente</option>
+                        <option value={this.props.decrecente}>Decrescente</option>
                     </select>
                 </DivOrdenacao>
             </DivHeader>

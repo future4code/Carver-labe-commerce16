@@ -2,11 +2,14 @@ import React from 'react';
 import styled from 'styled-components'
 
 const DivItem = styled.div`
-border: 1px solid black;
     display: flex;
     flex-direction: column;
     align-items: center;
     margin: 15px;
+    
+    p{
+        margin: 5px;
+    }
 `
 
 export default class ListProducts extends React.Component {
@@ -16,7 +19,8 @@ export default class ListProducts extends React.Component {
             <DivItem>
                 <img src={this.props.imagem}></img>
                 <p>{this.props.nome}</p>
-                <p>{this.props.preco}</p>
+                <p>R$ {this.props.preco}</p>
+                <button onClick={this.props.adicionarProduto}>Adicionar</button>
             </DivItem>
         )    
     }
