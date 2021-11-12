@@ -75,8 +75,22 @@ export default class App extends React.Component {
           nome: "Produto 6",
           preco: 600.00
         },
+      ],
+
+      carrinho: [
+        {
+          quantidade: 1,
+          produto:{
+            id: 1,
+            imagem: "https://picsum.photos/200/200?a=2",
+            nome: "Produto 1",
+            preco: 100.00           
+          }
+        }
       ]
     };
+
+    
 
     onChangeValorMinimo = (event) => {
         this.setState({
@@ -100,14 +114,6 @@ export default class App extends React.Component {
         this.setState({ordenar: event.target.value})
     }
 
-    adicionarProduto = (id) => {
-        const novaLista = [...this.state.produtos]
-        novaLista.filter((item) =>{
-          return id === item.id
-        })
-        this.setState({carrinho: novaLista})
-    }
-
     removerProduto = (id) => {
         const novaLista = this.state.carrinho.filter((produto) => {
           return produto.id !== id 
@@ -127,6 +133,37 @@ export default class App extends React.Component {
         .sort((prod1, prod2) => {
           return this.state.ordenar * (prod1.preco - prod2.preco)
         })
+    }
+
+    addCarrinho = (event) => {
+      let produtoEscolhido = this.state.produtos.filter((produto)=>{
+        return produto.id === event.target.value
+      })
+  
+      let carrinhoVazio = 0
+      let carrinhoCheio = this.state.carrinho.map((item)=> {
+        if (item.produto.id === event.target.value){
+          item.quantidade ++
+          carrinhoVazio ++          
+        }
+        return item
+      })
+      if (carrinhoVazio === 0) {
+        this.setState ({
+          carrinho: [...this.state.carrinho,{
+            quantidade: 1,
+            produto: produtoEscolhido[0]
+          }]
+        })
+        console.log(this.state.carrinho)
+      }else {
+        this.state({
+          carrinho: carrinhoCheio
+        })
+        console.log(this.state.carrinho)
+      }
+      
+
     }
 
   render() {
@@ -180,7 +217,7 @@ export default class App extends React.Component {
                     imagem={produto.imagem}
                     nome={produto.nome}
                     preco={produto.preco.toFixed(2)}
-                    adicionarProduto={() => this.adicionarProduto(produto.id)}  
+                    adicionarProduto={() => this.addProduto(produto.id)}  
                   />
                 )
               })

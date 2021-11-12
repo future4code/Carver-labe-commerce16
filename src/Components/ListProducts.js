@@ -20,7 +20,7 @@ export default class ListProducts extends React.Component {
                 <img src={this.props.imagem}></img>
                 <p>{this.props.nome}</p>
                 <p>R$ {this.props.preco}</p>
-                <button onClick={this.props.adicionarProduto}>Adicionar</button>
+                <button value={this.props.id} onClick={this.props.adicionarProduto}>Adicionar</button>
             </DivItem>
         )    
     }
