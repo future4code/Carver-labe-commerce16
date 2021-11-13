@@ -8,9 +8,11 @@ React
 
 ## Criadores:
 
-André Vinicius Marques
-Riclecio Ferreira Maia
-Rodrigo Calazans Santos 
+André Vinicius Marques.
+
+Riclecio Ferreira Maia.
+
+Rodrigo Calazans Santos. 
 
 ## Link do site:
 
