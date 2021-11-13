@@ -9,6 +9,7 @@ const DivCarrinho = styled.div`
 `
 
 export default class ShoppingCart extends React.Component {
+    
     render() {
         return (
             <DivCarrinho>
