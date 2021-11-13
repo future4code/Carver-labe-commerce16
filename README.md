@@ -16,5 +16,5 @@ Rodrigo Calazans Santos.
 
 ## Link do site:
 
-http://meaty-food.surge.sh/
+quick-detail.surge.sh
 
