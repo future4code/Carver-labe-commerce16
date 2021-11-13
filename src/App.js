@@ -42,36 +42,42 @@ export default class App extends React.Component {
           imagem: "https://picsum.photos/200/200?a=1",
           nome: "Produto 1",
           preco: 100.00,
+          qtd:1
         },
         {
           id: 2,
           imagem: "https://picsum.photos/200/200?a=2",
           nome: "Produto 2",
-          preco: 200.00
+          preco: 200.00,
+          qtd:1
         },
         {
           id: 3,
           imagem: "https://picsum.photos/200/200?a=3",
           nome: "Produto 3",
-          preco: 300.00
+          preco: 300.00,
+          qtd:1
         },
         {
           id: 4,
           imagem: "https://picsum.photos/200/200?a=4",
           nome: "Produto 4",
-          preco: 400.00
+          preco: 400.00,
+          qtd:1
         },
         {
           id: 5,
           imagem: "https://picsum.photos/200/200?a=5",
           nome: "Produto 5",
-          preco: 500.00
+          preco: 500.00,
+          qtd:1
         },
         {
           id: 6,
           imagem: "https://picsum.photos/200/200?a=6",
           nome: "Produto 6",
-          preco: 600.00
+          preco: 600.00,
+          qtd:1
         },
       ]
     };
@@ -122,7 +128,7 @@ export default class App extends React.Component {
       let controleItemCarrinho = 0;
       let compararItem = this.state.carrinho.map((item) => {
   
-        if(id === item.produto.id){
+        if(id === item.id){
           item.qtd++
           
           controleItemCarrinho++
@@ -133,7 +139,7 @@ export default class App extends React.Component {
 
       if(controleItemCarrinho === 0){
         
-        this.setState({carrinho: [...this.state.carrinho, {qtd: 1, produto: novoArray[0]}]})
+        this.setState({carrinho: [...this.state.carrinho, novoArray[0]]})
   
       } else {
         this.setState({carrinho: compararItem})
@@ -144,8 +150,8 @@ export default class App extends React.Component {
     removerItem = (id) => {
       let controlador = 0;
 
-      const produtoCarrinho = this.state.carrinho.map((item) => {
-        if(item.produto.id ===id && item.qtd > 1){
+      const novoArray = this.state.carrinho.map((item) => {
+        if(item.id ===id && item.qtd > 1){
           controlador++
           item.qtd--
         }
@@ -154,11 +160,11 @@ export default class App extends React.Component {
 
       if(controlador === 0){
         let novoCarrinho = this.state.carrinho.filter((item) => {
-          return item.produto.id !== id
+          return item.id !== id
         })
-        this.setState({carrinho: [...novoCarrinho]})
+        this.setState({carrinho: novoCarrinho})
       } else {
-        this.setState({carrinho: produtoCarrinho})
+        this.setState({carrinho: novoArray})
       }
     }
 
@@ -166,9 +172,13 @@ export default class App extends React.Component {
       let precoTotal = 0;
 
       this.state.carrinho.map((item) => {
-        precoTotal += item.produto.preco * item.qtd
+        precoTotal += item.preco * item.qtd
       })
-      return precoTotal
+      if(precoTotal === 0){
+        return false
+      } else{
+        return <div><b>Total: R$ </b>{precoTotal.toFixed(2)}</div>
+      }
     }
  
 
@@ -238,13 +248,13 @@ export default class App extends React.Component {
                 return (
                   <ShoppingCart
                     qtdProdutoCarrinho={item.qtd}
-                    nomeProduto={item.produto.nome}
-                    removerProduto={() => this.removerItem(item.produto.id)}
+                    nomeProduto={item.nome}
+                    removerProduto={() => this.removerItem(item.id)}
 
                   />
                 )
               })}
-              <div>Total: R$ {this.valorTotal()}</div>
+              {this.valorTotal()}
           </DivCarrinho>
         </DivApp>
       );

@@ -6,6 +6,9 @@ const DivCarrinho = styled.div`
     flex-direction: row;
     align-items: center;
     
+    p{
+        margin: 10px;
+    }
 `
 
 export default class ShoppingCart extends React.Component {
@@ -15,7 +18,7 @@ export default class ShoppingCart extends React.Component {
             <DivCarrinho>
                 <p>{this.props.qtdProdutoCarrinho}x</p>
                 <p>{this.props.nomeProduto}</p>
-                <button onClick={this.props.removerProduto}>Remover</button>
+                <button onClick={this.props.removerProduto}>X</button>
             </DivCarrinho>   
         )
     }

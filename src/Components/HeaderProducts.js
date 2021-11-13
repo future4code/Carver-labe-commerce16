@@ -28,7 +28,7 @@ export default class HeaderProducts extends React.Component {
                     <p>Quantidade de produtos: {this.props.qtdProduto}</p>
                 </div>
                 <DivOrdenacao>
-                    <p>Ordenacao</p>
+                    <p>Ordenação</p>
                     <select onChange={this.props.ordenacao}>
                         <option value={this.props.crescente}>Crescente</option>
                         <option value={this.props.decrecente}>Decrescente</option>
