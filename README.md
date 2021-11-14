@@ -16,5 +16,5 @@ Rodrigo Calazans Santos.
 
 ## Link do site:
 
-quick-detail.surge.sh
+available-team.surge.sh
 
