@@ -87,10 +87,10 @@ export default class App extends React.Component {
     }
   
     componentDidMount() {
-      let carrinhoPersistido = localStorage.getItem("carrinho");
-      carrinhoPersistido = JSON.parse(carrinhoPersistido);
+      let carrinhoLocasStorage = localStorage.getItem("carrinho");
+      carrinhoLocasStorage = JSON.parse(carrinhoLocasStorage);
       this.setState({
-        carrinho: carrinhoPersistido || [],
+        carrinho: carrinhoLocasStorage || [],
       });
     }
 
