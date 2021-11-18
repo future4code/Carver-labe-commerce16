@@ -1,1 +1,20 @@
-Sejam bem vindos ao Labe-commerce, esse repositório contém um esqueleto de app React e um .gitignore.
+# Sejam bem vindos ao Labe-commerce.
+
+# Site de compras
+
+## Utilizamos para construção:
+
+React
+
+## Criadores:
+
+André Vinicius Marques.
+
+Riclecio Ferreira Maia.
+
+Rodrigo Calazans Santos. 
+
+## Link do site:
+
+available-team.surge.sh
+
